@@ -1,0 +1,19 @@
+@for (item of options; track $index) {
+<div
+  class="notification"
+  [style.--color]="item.styles.color"
+  style.--gradient="linear-gradient(to bottom, {{
+    item.styles.gradient.color1
+  }}, {{ item.styles.gradient.color2 }}, {{ item.styles.gradient.color3 }})"
+  (click)="navigate(item)"
+>
+  <div class="notification__glow"></div>
+  <div class="notification__borderglow"></div>
+  <div class="notification__title">{{ item.title }}</div>
+  @if (item.description) {
+  <div class="notification__body">
+    {{ item.description }}
+  </div>
+  }
+</div>
+}

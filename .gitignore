@@ -1,1 +1,3 @@
 */.vs/*
+frontend/package-lock.json
+frontend/src/environments/environment.development.ts
