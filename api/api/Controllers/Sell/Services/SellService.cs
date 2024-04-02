@@ -13,8 +13,27 @@ namespace api.Controllers.Sell.Services
 
         public async Task<SellEntity?> create(CreateSellDto sell)
         {
-            SellEntity? sellEntity = await sellRepository.create(sell.Product, sell.Dispatcher, sell.Machine);
-            return sellEntity;
+            return  await sellRepository.create(sell.Product, sell.Dispatcher, sell.Machine);
+        }
+
+        public async Task<List<TotalSellByProductResponseDto>> getTotalSellsByProduct()
+        {
+            return await sellRepository.getTotalSellsByProduct();
+        }
+
+        public async Task<HigherSellerResponseDto?> getHigherSeller()
+        {
+            return await sellRepository.getHigherSeller();
+        }
+
+        public async Task<List<AllSelledProductsResponseDto>> getAllSelledProducts()
+        {
+            return await sellRepository.getAllSelledProducts();
+        }
+
+        public async Task<List<TotalSellsByFloor>> getTotalSellsByFloor()
+        {
+            return await sellRepository.getTotalSellsByFloor();
         }
     }
 }

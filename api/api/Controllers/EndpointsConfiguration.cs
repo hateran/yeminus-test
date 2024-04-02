@@ -1,4 +1,5 @@
 ﻿using api.Controllers.Dispatcher.Services;
+using api.Controllers.Exercises.Services;
 using api.Controllers.Product.Services;
 using api.Controllers.RegisterMachine.Services;
 using api.Controllers.Sell.Services;
@@ -13,6 +14,7 @@ namespace api.Controllers
             builder.Services.AddScoped<DispatcherService> ();
             builder.Services.AddScoped<RegisterMachineService> ();
             builder.Services.AddScoped<SellService>();
+            builder.Services.AddScoped<ExerciseService>();
         }
     }
 }

@@ -42,7 +42,7 @@ namespace api.Controllers.Dispatcher.Services
         {
             DispatcherEntity? dispatcher = await getById(id);
             if (dispatcher == null) { return false; }
-            dispatcherRepository.delete(dispatcher);
+            await dispatcherRepository.delete(dispatcher);
             return true;
         }
     }

@@ -42,7 +42,7 @@ namespace api.Controllers.RegisterMachine.Services
         {
             RegisterMachineEntity? registerMachine = await getById(id);
             if (registerMachine == null) { return false; }
-            registerMachineRepository.delete(registerMachine);
+            await registerMachineRepository.delete(registerMachine);
             return true;
         }
     }

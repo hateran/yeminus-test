@@ -17,12 +17,15 @@ namespace api.Database.Entities.Sell
 
         [ForeignKey(nameof(Dispatcher))]
         [JsonIgnore]
+        [NotMapped]
         public DispatcherEntity dispatcherRelation { get; set; }
         [ForeignKey(nameof(Product))]
         [JsonIgnore]
+        [NotMapped]
         public ProductEntity productRelation { get; set; }
         [ForeignKey(nameof(Machine))]
         [JsonIgnore]
+        [NotMapped]
         public RegisterMachineEntity registerMachineRelation { get; set; }
     }
 }

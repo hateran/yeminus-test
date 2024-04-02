@@ -44,7 +44,7 @@ namespace api.Controllers.Product.Services
         {
             ProductEntity? product = await getById(id);
             if (product == null) { return false; }
-            productRepository.delete(product);
+            await productRepository.delete(product);
             return true;
         }
     }
