@@ -1,7 +1,7 @@
 :host {
-  @apply tw-flex tw-flex-wrap 
-    tw-items-center tw-justify-center 
-    tw-gap-4 tw-h-full;
+  @apply flex flex-wrap 
+    items-center justify-center 
+    gap-4 h-full;
 
   .notification {
     display: flex;

@@ -1,1 +1,24 @@
-<p>Fibonacci works!</p>
+<app-card childContainerClass="relative">
+  <p class="text-center text-3xl text-gray-300 mb-4">Ejercicio de Fibonacci</p>
+  <form [formGroup]="form" class="flex flex-col gap-2">
+    <input
+      class="input"
+      placeholder="Valor ex: 8"
+      type="number"
+      min="0"
+      [formControl]="form.controls.value"
+      (keyup.enter)="fibonacciBtn.click()"
+    />
+    @if (form.controls.result.value !== null) {
+    <input class="input" readonly [formControl]="form.controls.result" />
+    }
+  </form>
+  <button
+    class="primary"
+    [disabled]="!form.valid"
+    (click)="validate()"
+    #fibonacciBtn
+  >
+    Validar
+  </button>
+</app-card>

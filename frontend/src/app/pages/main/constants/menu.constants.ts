@@ -43,3 +43,5 @@ export const MENU: IMenu[] = [
     },
   },
 ];
+
+export const ROUTES_TO_HIDE_BACK_BTN = [RoutesEnum.MAIN];

@@ -1,5 +1,5 @@
 export enum RoutesEnum {
-  MAIN = '',
+  MAIN = '/',
   ENCRYPT = 'encrypt',
   FIBONACCI = 'fibonacci',
   STORE = 'store',

@@ -1,1 +1,60 @@
-<p>Encrypt works!</p>
+<app-card childContainerClass="relative">
+  @if (showBackBtn) {
+  <app-back-button
+    containerClass="absolute left-8 top-8"
+    (clicked)="setInactive()"
+  />
+  }
+  <p class="text-center text-3xl text-gray-300 mb-4">
+    Ejercicio de encriptación
+  </p>
+  @for (item of options; track $index) { @if (item.template && item.isActive) {
+  <ng-content *ngTemplateOutlet="getTemplate(item); context: { data: item }" />
+  } @if (!item.isActive && !showBackBtn) {
+  <button
+    class="primary"
+    [disabled]="item.disabled"
+    (click)="item.isActive = true"
+  >
+    {{ item.title }}
+  </button>
+  } }
+</app-card>
+
+<ng-template let-data="data" #encrypt>
+  <form [formGroup]="form" class="flex flex-col gap-2">
+    <input
+      class="input"
+      placeholder="Frase ex: juan"
+      [formControl]="form.controls.phrase"
+      (keyup.enter)="encryptBtn.click()"
+    />
+    <input
+      class="input"
+      placeholder="Posición A ex: 3"
+      type="number"
+      min="0"
+      [formControl]="form.controls.a"
+      (keyup.enter)="encryptBtn.click()"
+    />
+    <input
+      class="input"
+      placeholder="Posición B ex: 4"
+      type="number"
+      min="0"
+      [formControl]="form.controls.b"
+      (keyup.enter)="encryptBtn.click()"
+    />
+    @if (form.controls.result.value) {
+    <input class="input" readonly [formControl]="form.controls.result" />
+    }
+  </form>
+  <button
+    class="primary"
+    [disabled]="!form.valid"
+    (click)="encryptText()"
+    #encryptBtn
+  >
+    Encriptar
+  </button>
+</ng-template>
